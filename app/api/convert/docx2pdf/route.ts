@@ -26,7 +26,29 @@ export async function POST(req: NextRequest) {
 
     const buffer = Buffer.from(await file.arrayBuffer());
 
-    // Extract text from DOCX using mammoth
+    // Primary: CloudConvert for 1:1 fidelity
+    if (process.env.CLOUDCONVERT_API_KEY) {
+      try {
+        const { runCloudConvertJob } = await import('@/app/lib/cloudconvert');
+        const fileUrl = await runCloudConvertJob(buffer.toString('base64'), file.name, 'docx', 'pdf');
+        
+        const axios = (await import('axios')).default;
+        const pdfRes = await axios.get(fileUrl, { responseType: 'arraybuffer' });
+        const pdfBytes = Buffer.from(pdfRes.data);
+        
+        return new NextResponse(pdfBytes as any, {
+          headers: {
+            'Content-Type': 'application/pdf',
+            'Content-Disposition': `attachment; filename="${file.name.replace(/\.docx?$/i, '.pdf')}"`,
+            'Content-Length': pdfBytes.byteLength.toString(),
+          },
+        });
+      } catch (ccErr) {
+        console.error('CloudConvert docx2pdf error, falling back:', ccErr);
+      }
+    }
+
+    // Secondary: Local text-based extraction (Mammoth)
     const mammoth = await import('mammoth');
     const result = await mammoth.extractRawText({ buffer });
     const text = result.value || '(No text content found)';

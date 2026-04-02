@@ -18,8 +18,36 @@ export async function POST(req: NextRequest) {
 
     const buffer = Buffer.from(await file.arrayBuffer());
 
-    // Extract text with pdf-parse
-    // Dynamic require to avoid Next.js bundling issues
+    // Primary: CloudConvert for high-quality extraction & OCR
+    if (process.env.CLOUDCONVERT_API_KEY) {
+      try {
+        const { runCloudConvertJob } = await import('@/app/lib/cloudconvert');
+        const fileUrl = await runCloudConvertJob(
+          buffer.toString('base64'), 
+          file.name, 
+          'pdf', 
+          'docx',
+          { engine: 'office', ocr: true } // 🚀 OCR enabled
+        );
+        
+        const axios = (await import('axios')).default;
+        const res = await axios.get(fileUrl, { responseType: 'arraybuffer' });
+        const docxBytes = Buffer.from(res.data);
+        const outName = file.name.replace(/\.pdf$/i, '.docx');
+
+        return new NextResponse(docxBytes, {
+          headers: {
+            'Content-Type': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+            'Content-Disposition': `attachment; filename="${outName}"`,
+            'Content-Length': docxBytes.byteLength.toString(),
+          },
+        });
+      } catch (ccErr) {
+        console.error('CloudConvert pdf2docx error, falling back:', ccErr);
+      }
+    }
+
+    // Secondary: Local text extraction (Fallback)
     let text = '';
     let pageCount = 0;
     try {
@@ -29,7 +57,7 @@ export async function POST(req: NextRequest) {
       text = data.text || '';
       pageCount = data.numpages || 0;
     } catch {
-      text = 'Could not extract text from this PDF.\nThe file may be scanned or image-based.\nFor scanned PDFs, please use an OCR tool first.';
+      text = 'Local extraction failed. For scanned PDFs, please use a CloudConvert API key for OCR support.';
     }
 
     // Build minimal DOCX (Office Open XML) manually — no heavy dependency
