@@ -1,0 +1,185 @@
+﻿
+> fileforge@1.0.0 build
+> next build
+
+node.exe : (node:28548) 
+[MODULE_TYPELESS_PACKAGE
+_JSON] Warning: Module 
+type of file:///C:/Users
+/Sadhuram/Desktop/app/ne
+xt.config.js is not 
+specified and it 
+doesn't parse as 
+CommonJS.
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo      
+        : NotSpecified: 
+((    node:28548) 
+[M...se a    s 
+CommonJS.:String) [    
+], RemoteException
+    + 
+FullyQualifiedError    
+Id : NativeCommandErr   
+ or
+ 
+Reparsing as ES module 
+because module syntax 
+was detected. This 
+incurs a performance 
+overhead.
+To eliminate this 
+warning, add "type": 
+"module" to C:\Users\Sad
+huram\Desktop\app\packag
+e.json.
+(Use `node 
+--trace-warnings ...` 
+to show where the 
+warning was created)
+  Γû▓ Next.js 14.2.5
+
+   Creating an optimized production build ...
+(node:11344) [MODULE_TYP
+ELESS_PACKAGE_JSON] 
+Warning: Module type of 
+file:///C:/Users/Sadhura
+m/Desktop/app/next.confi
+g.js is not specified 
+and it doesn't parse as 
+CommonJS.
+Reparsing as ES module 
+because module syntax 
+was detected. This 
+incurs a performance 
+overhead.
+To eliminate this 
+warning, add "type": 
+"module" to C:\Users\Sad
+huram\Desktop\app\packag
+e.json.
+(Use `node 
+--trace-warnings ...` 
+to show where the 
+warning was created)
+ ΓÜá Compiled with 
+warnings
+
+./app/api/convert/pdf2do
+cx/route.ts
+Module not found: Can't 
+resolve 'pdf-parse' in '
+C:\Users\Sadhuram\Deskto
+p\app\app\api\convert\pd
+f2docx'
+
+Import trace for 
+requested module:
+./app/api/convert/pdf2do
+cx/route.ts
+
+(node:9632) [MODULE_TYPE
+LESS_PACKAGE_JSON] 
+Warning: Module type of 
+file:///C:/Users/Sadhura
+m/Desktop/app/next.confi
+g.js is not specified 
+and it doesn't parse as 
+CommonJS.
+Reparsing as ES module 
+because module syntax 
+was detected. This 
+incurs a performance 
+overhead.
+To eliminate this 
+warning, add "type": 
+"module" to C:\Users\Sad
+huram\Desktop\app\packag
+e.json.
+(Use `node 
+--trace-warnings ...` 
+to show where the 
+warning was created)
+(node:11712) [MODULE_TYP
+ELESS_PACKAGE_JSON] 
+Warning: Module type of 
+file:///C:/Users/Sadhura
+m/Desktop/app/next.confi
+g.js is not specified 
+and it doesn't parse as 
+CommonJS.
+Reparsing as ES module 
+because module syntax 
+was detected. This 
+incurs a performance 
+overhead.
+To eliminate this 
+warning, add "type": 
+"module" to C:\Users\Sad
+huram\Desktop\app\packag
+e.json.
+(Use `node 
+--trace-warnings ...` 
+to show where the 
+warning was created)
+ Γ£ô Compiled successfully
+   Linting and checking validity of types ...
+Failed to compile.
+
+./app/api/convert/docx2p
+df/route.ts:121:29
+Type error: Argument of 
+type 'Uint8Array<ArrayBu
+fferLike>' is not 
+assignable to parameter 
+of type 'BodyInit | 
+null | undefined'.
+  Type 'Uint8Array<Array
+BufferLike>' is missing 
+the following 
+properties from type 
+'URLSearchParams': 
+size, append, delete, 
+get, and 2 more.
+
+[0m [90m 119 |[39m   
+  [36mconst[39m 
+outName [33m=[39m file
+[33m.[39mname[33m.[3
+9mreplace([35m/\.docx?$
+/i[39m[33m,[39m [32m
+'.pdf'[39m)[33m;[39m
+[0m
+[0m [90m 120 
+|[39m[0m
+[0m[31m[1m>[22m[39m
+[90m 121 |[39m     
+[36mreturn[39m 
+[36mnew[39m [33mNextR
+esponse[39m(pdfBytes[3
+3m,[39m {[0m
+[0m [90m     |[39m   
+                        
+  
+[31m[1m^[22m[39m[0m
+[0m [90m 122 |[39m   
+    headers[33m:[39m 
+{[0m
+[0m [90m 123 |[39m   
+      [32m'Content-Type
+'[39m[33m:[39m [32m'
+application/pdf'[39m[3
+3m,[39m[0m
+[0m [90m 124 |[39m   
+      [32m'Content-Disp
+osition'[39m[33m:[39m
+ [32m`attachment; filen
+ame="${outName}"`[39m[
+33m,[39m[0m
