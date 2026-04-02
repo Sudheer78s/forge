@@ -44,7 +44,13 @@ export async function POST(req: NextRequest) {
           },
         });
       } catch (ccErr) {
-        console.error('CloudConvert docx2pdf error, falling back:', ccErr);
+        console.error('CloudConvert docx2pdf error:', ccErr);
+        // If it's a server error but we have a key, we should let the user know instead of a silent broken fallback
+        const ccMsg = ccErr instanceof Error ? ccErr.message : 'Unknown CloudConvert error';
+        if (ccMsg.toLowerCase().includes('job timed out') || ccMsg.toLowerCase().includes('api key')) {
+           return NextResponse.json({ error: `CloudConvert error: ${ccMsg}. Check your API settings.` }, { status: 500 });
+        }
+        console.log('Falling back to local extraction (text-only)...');
       }
     }
 
@@ -67,12 +73,14 @@ export async function POST(req: NextRequest) {
     const FONT_SIZE = 10.5;
     const MAX_W = PAGE_W - MARGIN * 2;
 
-    const lines = text.split('\n');
+    const sanitizedLines = text.split('\n').map(l => l.replace(/[^\x00-\xFF]/g, '?'));
+    
     let page = pdfDoc.addPage([PAGE_W, PAGE_H]);
     let y = PAGE_H - MARGIN;
 
     // Title
-    page.drawText(file.name.replace(/\.docx?$/i, ''), {
+    const sanitizedTitle = file.name.replace(/\.docx?$/i, '').replace(/[^\x00-\xFF]/g, '?');
+    page.drawText(sanitizedTitle, {
       x: MARGIN, y,
       font: boldFont,
       size: 14,
@@ -90,7 +98,7 @@ export async function POST(req: NextRequest) {
     });
     y -= LINE_H;
 
-    for (const rawLine of lines) {
+    for (const rawLine of sanitizedLines) {
       const trimmed = rawLine.trim();
 
       // Word-wrap each line

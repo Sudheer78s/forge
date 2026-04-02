@@ -43,7 +43,12 @@ export async function POST(req: NextRequest) {
           },
         });
       } catch (ccErr) {
-        console.error('CloudConvert pdf2docx error, falling back:', ccErr);
+        console.error('CloudConvert pdf2docx error:', ccErr);
+        const ccMsg = ccErr instanceof Error ? ccErr.message : 'Unknown CloudConvert error';
+        if (ccMsg.toLowerCase().includes('job timed out') || ccMsg.toLowerCase().includes('api key')) {
+           return NextResponse.json({ error: `CloudConvert error: ${ccMsg}. Check your API settings.` }, { status: 500 });
+        }
+        console.log('Falling back to local extraction (text-only)...');
       }
     }
 
