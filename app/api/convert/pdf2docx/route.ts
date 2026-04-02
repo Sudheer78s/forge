@@ -23,8 +23,8 @@ export async function POST(req: NextRequest) {
     let text = '';
     let pageCount = 0;
     try {
-      // eslint-disable-next-line @typescript-eslint/no-require-imports
-      const pdfParse = require('pdf-parse');
+      // @ts-ignore
+      const pdfParse = (await import('pdf-parse')).default || (await import('pdf-parse'));
       const data = await pdfParse(buffer);
       text = data.text || '';
       pageCount = data.numpages || 0;
@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
 
     const outName = file.name.replace(/\.pdf$/i, '.docx');
 
-    return new NextResponse(docxBytes, {
+    return new NextResponse(docxBytes as any, {
       headers: {
         'Content-Type': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
         'Content-Disposition': `attachment; filename="${outName}"`,

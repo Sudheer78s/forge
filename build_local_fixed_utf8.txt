@@ -1,0 +1,336 @@
+﻿
+> fileforge@1.0.0 build
+> next build
+
+  Γû▓ Next.js 14.2.5
+
+   Creating an optimized production build ...
+node.exe : Failed to 
+compile.
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo        
+      : NotSpecified: (F  
+  ailed to compile.:Str   
+ ing) [], RemoteExcept    
+ion
+    + FullyQualifiedError 
+   Id : NativeCommandErr  
+  or
+ 
+
+./app/globals.css.webpack[
+javascript/auto]!=!./node_
+modules/next/dist/build/we
+bpack/loaders/css-loader/s
+rc/index.js??ruleSet[1].ru
+les[13].oneOf[12].use[2]!.
+/node_modules/next/dist/bu
+ild/webpack/loaders/postcs
+s-loader/src/index.js??rul
+eSet[1].rules[13].oneOf[12
+].use[3]!./app/globals.css
+ReferenceError: module is 
+not defined in ES module 
+scope
+This file is being 
+treated as an ES module 
+because it has a '.js' 
+file extension and 'C:\Use
+rs\Sadhuram\Desktop\app\pa
+ckage.json' contains 
+"type": "module". To 
+treat it as a CommonJS 
+script, rename it to use 
+the '.cjs' file extension.
+    at file:///C:/Users/Sa
+dhuram/Desktop/app/postcss
+.config.js:1:1
+    at ModuleJob.run (node
+:internal/modules/esm/modu
+le_job:430:25)
+    at async onImport.trac
+ePromise.__proto__ (node:i
+nternal/modules/esm/loader
+:661:26)
+    at async findConfig (C
+:\Users\Sadhuram\Desktop\a
+pp\node_modules\next\dist\
+lib\find-config.js:85:25)
+    at async 
+getPostCssPlugins (C:\User
+s\Sadhuram\Desktop\app\nod
+e_modules\next\dist\build\
+webpack\config\blocks\css\
+plugins.js:89:18)
+    at async C:\Users\Sadh
+uram\Desktop\app\node_modu
+les\next\dist\build\webpac
+k\config\blocks\css\index.
+js:124:36
+    at async C:\Users\Sadh
+uram\Desktop\app\node_modu
+les\next\dist\build\webpac
+k\loaders\postcss-loader\s
+rc\index.js:51:40
+    at async 
+Span.traceAsyncFn (C:\User
+s\Sadhuram\Desktop\app\nod
+e_modules\next\dist\trace\
+trace.js:154:20)
+
+Import trace for 
+requested module:
+./app/globals.css.webpack[
+javascript/auto]!=!./node_
+modules/next/dist/build/we
+bpack/loaders/css-loader/s
+rc/index.js??ruleSet[1].ru
+les[13].oneOf[12].use[2]!.
+/node_modules/next/dist/bu
+ild/webpack/loaders/postcs
+s-loader/src/index.js??rul
+eSet[1].rules[13].oneOf[12
+].use[3]!./app/globals.css
+./app/globals.css
+
+./app/globals.css
+ReferenceError: module is 
+not defined in ES module 
+scope
+This file is being 
+treated as an ES module 
+because it has a '.js' 
+file extension and 'C:\Use
+rs\Sadhuram\Desktop\app\pa
+ckage.json' contains 
+"type": "module". To 
+treat it as a CommonJS 
+script, rename it to use 
+the '.cjs' file extension.
+    at file:///C:/Users/Sa
+dhuram/Desktop/app/postcss
+.config.js:1:1
+    at ModuleJob.run (node
+:internal/modules/esm/modu
+le_job:430:25)
+    at async onImport.trac
+ePromise.__proto__ (node:i
+nternal/modules/esm/loader
+:661:26)
+    at async findConfig (C
+:\Users\Sadhuram\Desktop\a
+pp\node_modules\next\dist\
+lib\find-config.js:85:25)
+    at async 
+getPostCssPlugins (C:\User
+s\Sadhuram\Desktop\app\nod
+e_modules\next\dist\build\
+webpack\config\blocks\css\
+plugins.js:89:18)
+    at async C:\Users\Sadh
+uram\Desktop\app\node_modu
+les\next\dist\build\webpac
+k\config\blocks\css\index.
+js:124:36
+    at async C:\Users\Sadh
+uram\Desktop\app\node_modu
+les\next\dist\build\webpac
+k\loaders\postcss-loader\s
+rc\index.js:51:40
+    at async 
+Span.traceAsyncFn (C:\User
+s\Sadhuram\Desktop\app\nod
+e_modules\next\dist\trace\
+trace.js:154:20)
+    at 
+tryRunOrWebpackError (C:\U
+sers\Sadhuram\Desktop\app\
+node_modules\next\dist\com
+piled\webpack\bundle5.js:2
+8:312989)
+    at __webpack_require_m
+odule__ (C:\Users\Sadhuram
+\Desktop\app\node_modules\
+next\dist\compiled\webpack
+\bundle5.js:28:131165)
+    at __nested_webpack_re
+quire_153728__ (C:\Users\S
+adhuram\Desktop\app\node_m
+odules\next\dist\compiled\
+webpack\bundle5.js:28:1306
+07)
+    at C:\Users\Sadhuram\D
+esktop\app\node_modules\ne
+xt\dist\compiled\webpack\b
+undle5.js:28:131454
+    at symbolIterator (C:\
+Users\Sadhuram\Desktop\app
+\node_modules\next\dist\co
+mpiled\neo-async\async.js:
+1:14444)
+    at done (C:\Users\Sadh
+uram\Desktop\app\node_modu
+les\next\dist\compiled\neo
+-async\async.js:1:14824)
+    at Hook.eval [as 
+callAsync] (eval at 
+create (C:\Users\Sadhuram\
+Desktop\app\node_modules\n
+ext\dist\compiled\webpack\
+bundle5.js:13:28858), 
+<anonymous>:15:1)
+    at 
+Hook.CALL_ASYNC_DELEGATE 
+[as _callAsync] (C:\Users\
+Sadhuram\Desktop\app\node_
+modules\next\dist\compiled
+\webpack\bundle5.js:13:260
+12)
+    at C:\Users\Sadhuram\D
+esktop\app\node_modules\ne
+xt\dist\compiled\webpack\b
+undle5.js:28:130328
+    at symbolIterator (C:\
+Users\Sadhuram\Desktop\app
+\node_modules\next\dist\co
+mpiled\neo-async\async.js:
+1:14402)
+-- inner error --
+ReferenceError: module is 
+not defined in ES module 
+scope
+This file is being 
+treated as an ES module 
+because it has a '.js' 
+file extension and 'C:\Use
+rs\Sadhuram\Desktop\app\pa
+ckage.json' contains 
+"type": "module". To 
+treat it as a CommonJS 
+script, rename it to use 
+the '.cjs' file extension.
+    at file:///C:/Users/Sa
+dhuram/Desktop/app/postcss
+.config.js:1:1
+    at ModuleJob.run (node
+:internal/modules/esm/modu
+le_job:430:25)
+    at async onImport.trac
+ePromise.__proto__ (node:i
+nternal/modules/esm/loader
+:661:26)
+    at async findConfig (C
+:\Users\Sadhuram\Desktop\a
+pp\node_modules\next\dist\
+lib\find-config.js:85:25)
+    at async 
+getPostCssPlugins (C:\User
+s\Sadhuram\Desktop\app\nod
+e_modules\next\dist\build\
+webpack\config\blocks\css\
+plugins.js:89:18)
+    at async C:\Users\Sadh
+uram\Desktop\app\node_modu
+les\next\dist\build\webpac
+k\config\blocks\css\index.
+js:124:36
+    at async C:\Users\Sadh
+uram\Desktop\app\node_modu
+les\next\dist\build\webpac
+k\loaders\postcss-loader\s
+rc\index.js:51:40
+    at async 
+Span.traceAsyncFn (C:\User
+s\Sadhuram\Desktop\app\nod
+e_modules\next\dist\trace\
+trace.js:154:20)
+    at Object.<anonymous> 
+(C:\Users\Sadhuram\Desktop
+\app\node_modules\next\dis
+t\build\webpack\loaders\cs
+s-loader\src\index.js??rul
+eSet[1].rules[13].oneOf[12
+].use[2]!C:\Users\Sadhuram
+\Desktop\app\node_modules\
+next\dist\build\webpack\lo
+aders\postcss-loader\src\i
+ndex.js??ruleSet[1].rules[
+13].oneOf[12].use[3]!C:\Us
+ers\Sadhuram\Desktop\app\a
+pp\globals.css:1:7)
+    at C:\Users\Sadhuram\D
+esktop\app\node_modules\ne
+xt\dist\compiled\webpack\b
+undle5.js:28:922493
+    at Hook.eval [as 
+call] (eval at create (C:\
+Users\Sadhuram\Desktop\app
+\node_modules\next\dist\co
+mpiled\webpack\bundle5.js:
+13:28636), 
+<anonymous>:7:1)
+    at Hook.CALL_DELEGATE 
+[as _call] (C:\Users\Sadhu
+ram\Desktop\app\node_modul
+es\next\dist\compiled\webp
+ack\bundle5.js:13:25906)
+    at C:\Users\Sadhuram\D
+esktop\app\node_modules\ne
+xt\dist\compiled\webpack\b
+undle5.js:28:131198
+    at 
+tryRunOrWebpackError (C:\U
+sers\Sadhuram\Desktop\app\
+node_modules\next\dist\com
+piled\webpack\bundle5.js:2
+8:312943)
+    at __webpack_require_m
+odule__ (C:\Users\Sadhuram
+\Desktop\app\node_modules\
+next\dist\compiled\webpack
+\bundle5.js:28:131165)
+    at __nested_webpack_re
+quire_153728__ (C:\Users\S
+adhuram\Desktop\app\node_m
+odules\next\dist\compiled\
+webpack\bundle5.js:28:1306
+07)
+    at C:\Users\Sadhuram\D
+esktop\app\node_modules\ne
+xt\dist\compiled\webpack\b
+undle5.js:28:131454
+    at symbolIterator (C:\
+Users\Sadhuram\Desktop\app
+\node_modules\next\dist\co
+mpiled\neo-async\async.js:
+1:14444)
+
+Generated code for C:\User
+s\Sadhuram\Desktop\app\nod
+e_modules\next\dist\build\
+webpack\loaders\css-loader
+\src\index.js??ruleSet[1].
+rules[13].oneOf[12].use[2]
+!C:\Users\Sadhuram\Desktop
+\app\node_modules\next\dis
+t\build\webpack\loaders\po
+stcss-loader\src\index.js?
+?ruleSet[1].rules[13].oneO
+f[12].use[3]!C:\Users\Sadh
+uram\Desktop\app\app\globa
+ls.css
+
+Import trace for 
+requested module:
+./app/globals.css
+
+
+> Build failed because of 
+webpack errors

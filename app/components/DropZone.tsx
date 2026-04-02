@@ -3,7 +3,7 @@
 import { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { ConversionTool, UploadedFile, MAX_FILE_MB } from '../lib/types';
-import { Upload, X, FileText, Image, File } from 'lucide-react';
+import { Upload, X, FileText, Image as ImageIcon, File } from 'lucide-react';
 import { generateId, formatBytes } from '../lib/converters';
 import clsx from 'clsx';
 import toast from 'react-hot-toast';
@@ -17,7 +17,7 @@ type Props = {
 function FileIcon({ name }: { name: string }) {
   const ext = name.split('.').pop()?.toLowerCase() || '';
   if (['jpg', 'jpeg', 'png', 'webp', 'gif'].includes(ext))
-    return <Image size={16} className="text-green-600" />;
+    return <ImageIcon size={16} className="text-green-600" />;
   if (ext === 'pdf')
     return <FileText size={16} className="text-red-500" />;
   return <File size={16} className="text-blue-500" />;
@@ -26,7 +26,7 @@ function FileIcon({ name }: { name: string }) {
 export default function DropZone({ tool, files, onChange }: Props) {
   const [previewing, setPreviewing] = useState<string | null>(null);
 
-  const onDrop = useCallback(async (accepted: File[], rejected: { file: File; errors: { message: string }[] }[]) => {
+  const onDrop = useCallback(async (accepted: File[], rejected: any[]) => {
     // Handle rejected files
     rejected.forEach(({ file, errors }) => {
       toast.error(`${file.name}: ${errors[0]?.message || 'Unsupported file'}`);
@@ -124,7 +124,7 @@ export default function DropZone({ tool, files, onChange }: Props) {
               {uf.preview ? (
                 <img
                   src={uf.preview}
-                  alt={uf.file.name}
+                  alt={`Preview of ${uf.file.name}`}
                   className="w-9 h-9 rounded-md object-cover flex-shrink-0 border border-neutral-200 dark:border-neutral-700 cursor-pointer"
                   onClick={() => setPreviewing(previewing === uf.id ? null : uf.id)}
                 />
@@ -159,7 +159,11 @@ export default function DropZone({ tool, files, onChange }: Props) {
             const uf = files.find(f => f.id === previewing);
             return uf?.preview ? (
               <div className="rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-700">
-                <img src={uf.preview} alt={uf.file.name} className="w-full max-h-56 object-contain bg-neutral-50 dark:bg-neutral-900" />
+                <img 
+                  src={uf.preview} 
+                  alt={`Expanded preview of ${uf.file.name}`} 
+                  className="w-full max-h-56 object-contain bg-neutral-50 dark:bg-neutral-900" 
+                />
               </div>
             ) : null;
           })()}

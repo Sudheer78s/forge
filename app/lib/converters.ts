@@ -131,6 +131,6 @@ export async function mergePdfs(
 
   onProgress(92, 'Saving merged PDF…');
   const bytes = await merged.save();
-  const blob = new Blob([bytes], { type: 'application/pdf' });
+  const blob = new Blob([bytes as any], { type: 'application/pdf' });
   return [{ id: generateId(), fileName: 'merged.pdf', blob, size: blob.size }];
 }

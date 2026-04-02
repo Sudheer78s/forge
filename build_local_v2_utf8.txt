@@ -1,0 +1,176 @@
+﻿
+> fileforge@1.0.0 build
+> next build
+
+node.exe : (node:27344) [M
+ODULE_TYPELESS_PACKAGE_JSO
+N] Warning: Module type 
+of file:///C:/Users/Sadhur
+am/Desktop/app/next.config
+.js is not specified and 
+it doesn't parse as 
+CommonJS.
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo        
+      : NotSpecified: ((  
+  node:27344) [M...se a   
+ s CommonJS.:String) [    
+], RemoteException
+    + FullyQualifiedError 
+   Id : NativeCommandErr  
+  or
+ 
+Reparsing as ES module 
+because module syntax was 
+detected. This incurs a 
+performance overhead.
+To eliminate this 
+warning, add "type": 
+"module" to C:\Users\Sadhu
+ram\Desktop\app\package.js
+on.
+(Use `node 
+--trace-warnings ...` to 
+show where the warning 
+was created)
+  Γû▓ Next.js 14.2.5
+
+   Creating an optimized production build ...
+(node:31108) [MODULE_TYPEL
+ESS_PACKAGE_JSON] 
+Warning: Module type of fi
+le:///C:/Users/Sadhuram/De
+sktop/app/next.config.js 
+is not specified and it 
+doesn't parse as CommonJS.
+Reparsing as ES module 
+because module syntax was 
+detected. This incurs a 
+performance overhead.
+To eliminate this 
+warning, add "type": 
+"module" to C:\Users\Sadhu
+ram\Desktop\app\package.js
+on.
+(Use `node 
+--trace-warnings ...` to 
+show where the warning 
+was created)
+(node:27844) [MODULE_TYPEL
+ESS_PACKAGE_JSON] 
+Warning: Module type of fi
+le:///C:/Users/Sadhuram/De
+sktop/app/next.config.js 
+is not specified and it 
+doesn't parse as CommonJS.
+Reparsing as ES module 
+because module syntax was 
+detected. This incurs a 
+performance overhead.
+To eliminate this 
+warning, add "type": 
+"module" to C:\Users\Sadhu
+ram\Desktop\app\package.js
+on.
+(Use `node 
+--trace-warnings ...` to 
+show where the warning 
+was created)
+(node:8504) [MODULE_TYPELE
+SS_PACKAGE_JSON] Warning: 
+Module type of file:///C:/
+Users/Sadhuram/Desktop/app
+/next.config.js is not 
+specified and it doesn't 
+parse as CommonJS.
+Reparsing as ES module 
+because module syntax was 
+detected. This incurs a 
+performance overhead.
+To eliminate this 
+warning, add "type": 
+"module" to C:\Users\Sadhu
+ram\Desktop\app\package.js
+on.
+(Use `node 
+--trace-warnings ...` to 
+show where the warning 
+was created)
+ Γ£ô Compiled successfully
+   Linting and checking validity of types ...
+
+./app/components/DropZone.tsx
+20:12  Warning: Image elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+125:17  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+162:17  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+Failed to compile.
+
+./app/lib/converters.ts:13
+4:26
+Type error: Type 'Uint8Arr
+ay<ArrayBufferLike>' is 
+not assignable to type 
+'BlobPart'.
+  Type 'Uint8Array<ArrayBu
+fferLike>' is not 
+assignable to type 'ArrayB
+ufferView<ArrayBuffer>'.
+    Types of property 
+'buffer' are incompatible.
+      Type 
+'ArrayBufferLike' is not 
+assignable to type 
+'ArrayBuffer'.
+        Type 
+'SharedArrayBuffer' is 
+missing the following 
+properties from type 
+'ArrayBuffer': resizable, 
+resize, detached, 
+transfer, 
+transferToFixedLength
+
+[0m [90m 132 |[39m   on
+Progress([35m92[39m[33m
+,[39m [32m'Saving 
+merged PDFΓÇª'[39m)[33m;
+[39m[0m
+[0m [90m 133 |[39m   
+[36mconst[39m bytes 
+[33m=[39m 
+[36mawait[39m merged[33
+m.[39msave()[33m;[39m[
+0m
+[0m[31m[1m>[22m[39m[
+90m 134 |[39m   
+[36mconst[39m blob 
+[33m=[39m [36mnew[39m 
+[33mBlob[39m([bytes][33
+m,[39m { type[33m:[39m 
+[32m'application/pdf'[39
+m })[33m;[39m[0m
+[0m [90m     |[39m     
+                     
+[31m[1m^[22m[39m[0m
+[0m [90m 135 |[39m   
+[36mreturn[39m [{ 
+id[33m:[39m 
+generateId()[33m,[39m 
+fileName[33m:[39m [32m'
+merged.pdf'[39m[33m,[39
+m blob[33m,[39m 
+size[33m:[39m 
+blob[33m.[39msize 
+}][33m;[39m[0m
+[0m [90m 136 |[39m 
+}[0m
+[0m [90m 137 |[39m[0m
